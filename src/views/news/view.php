@@ -1,0 +1,79 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: floor12
+ * Date: 13.04.2018
+ * Time: 15:33
+ *
+ * @var $this \yii\web\View
+ * @var $model \floor12\news\News
+ */
+
+use floor12\files\assets\LightboxAsset;
+use floor12\files\components\FilesBlock;
+use floor12\editmodal\ModalWindow;
+use yii\helpers\Html;
+use common\components\FontAwesome;
+use yii\widgets\Pjax;
+use frontend\assets\SwiperAsset;
+
+LightboxAsset::register($this);
+
+$this->title = $model->title_seo;
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description_seo]);
+$this->registerMetaTag(['name' => 'keywords', 'content' => $model->keywords_seo]);
+
+SwiperAsset::register($this);
+$this->registerJs('initSwiper()', \yii\web\View::POS_READY);
+
+$this->params['breadcrumbs'][] = $this->title;
+
+if (Yii::$app->getModule('pages')->adminMode()):
+    echo Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs pull-right', 'onclick' => ModalWindow::showForm('/news/news/form', $model->id)]);
+endif;
+
+Pjax::begin(['id' => 'items']);
+
+?>
+<div class="h1-wrapper-margin h1-wrapper">
+    <h1><?= $model->title ?></h1>
+    <div></div>
+</div>
+
+<?php if ($model->images && $model->poster_in_view && !$model->slider): ?>
+    <?= Html::a(Html::img($model->images[0]->href, ['class' => 'content-big-image', 'alt' => $model->title_seo]), $model->images[0]->href, ['data-lightbox' => 'news']); ?>
+<?php endif; ?>
+
+<?php if ($model->images && $model->slider): ?>
+    <div class="swiper-container swiper-full ">
+        <div class="swiper-wrapper">
+            <?php foreach ($model->images as $image) { ?>
+                <a class="swiper-slide" data-lightbox="hotel" href="<?= $image->href ?>"
+                   style="background-image: url(<?= $image->href ?>); background-size: cover;"></a>
+            <?php } ?>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <br><br><br>
+
+<?php endif; ?>
+
+<?= $model->body ?>
+
+<div class="news-date">
+    <?= \Yii::$app->formatter->asDate($model->publish_date) ?>
+</div>
+
+
+<?php if (sizeof($model->images) > 1 && !$model->slider): ?>
+    <?= FilesBlock::widget([
+        'files' => $model->images,
+        'passFirst' => true,
+    ]) ?>
+    <?php
+endif;
+Pjax::end()
+?>
