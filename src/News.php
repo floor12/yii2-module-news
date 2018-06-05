@@ -31,8 +31,8 @@ use common\models\User;
  * @property int $publish_date Дата публикации
  * @property string $url Адрес страницы
  * @property bool $index_page Показывать на главной
- * @property bool $poster_in_listing Показывать ли постер в списке
- * @property bool $poster_in_view Показывать на главной
+ * @property bool $poster_in_listing Показывать постер в списке
+ * @property bool $poster_in_view Показывать постер при просмотре
  * @property bool $slider Показывать слайдер
  *
  * @property User $creator
@@ -103,8 +103,8 @@ class News extends ActiveRecord implements PageObjectInterface
             'publish_date' => 'Дата публикации',
             'images' => 'Изображения',
             'index_page' => 'Показывать на главной',
-            'poster_in_listing' => 'Показывать ли постер в списке',
-            'poster_in_view' => 'Показывать ли постер при просмотре',
+            'poster_in_listing' => 'Показывать постер в списке',
+            'poster_in_view' => 'Показывать постер при просмотре',
             'slider' => 'Показывать слайдер'
         ];
     }

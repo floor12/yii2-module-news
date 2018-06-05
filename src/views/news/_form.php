@@ -13,7 +13,7 @@ use kartik\widgets\DatePicker;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use floor12\news\News;
-use common\modules\pages\components\Summernote;
+use floor12\pages\components\Summernote;
 use floor12\files\components\FileInputWidget;
 
 $form = ActiveForm::begin([

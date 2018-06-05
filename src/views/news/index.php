@@ -43,7 +43,7 @@ use kartik\form\ActiveForm;
 
 echo ListView::widget([
     'dataProvider' => $model->dataProvider(),
-    'itemView' => '_index',
+    'itemView' => Yii::$app->getModule('news')->viewIndexListItem,
     'layout' => '{items}{pager}',
 ]);
 

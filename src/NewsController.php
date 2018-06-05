@@ -54,7 +54,7 @@ class NewsController extends Controller
         $model = new NewsFilter();
         $model->page_id = $page->id;
         $model->load(Yii::$app->request->get());
-        return $this->render('@common/modules/news/views/news/index', ['model' => $model, 'page' => $page]);
+        return $this->render(Yii::$app->getModule('news')->viewIndex, ['model' => $model, 'page' => $page]);
     }
 
     public function actionView($key, $page_id = null)
@@ -63,7 +63,7 @@ class NewsController extends Controller
         if (!$model)
             throw new NotFoundHttpException();
 
-        return $this->render('@common/modules/news/views/news/view', ['model' => $model]);
+        return $this->render(Yii::$app->getModule('news')->viewView, ['model' => $model]);
     }
 
     public function actions()
@@ -72,12 +72,13 @@ class NewsController extends Controller
             'form' => [
                 'class' => EditModalAction::class,
                 'model' => News::class,
+                'view' => Yii::$app->getModule('news')->viewForm,
                 'logic' => NewsUpdate::class,
             ],
             'delete' => [
                 'class' => DeleteAction::class,
                 'model' => News::class,
-                'message' => 'Отель удален',
+                'message' => 'Новость удалена',
             ]
         ];
     }
