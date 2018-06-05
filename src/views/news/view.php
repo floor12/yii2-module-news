@@ -15,7 +15,7 @@ use floor12\editmodal\ModalWindow;
 use yii\helpers\Html;
 use common\components\FontAwesome;
 use yii\widgets\Pjax;
-use frontend\assets\SwiperAsset;
+use floor12\news\SwiperAsset;
 
 LightboxAsset::register($this);
 
