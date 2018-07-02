@@ -15,6 +15,7 @@ use yii\helpers\Html;
 use floor12\news\News;
 use floor12\pages\components\Summernote;
 use floor12\files\components\FileInputWidget;
+use floor12\editmodal\EditModalHelper;
 
 $form = ActiveForm::begin([
     'id' => 'news-form',

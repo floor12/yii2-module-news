@@ -16,6 +16,7 @@ use yii\helpers\Html;
 use common\components\FontAwesome;
 use yii\widgets\Pjax;
 use floor12\news\SwiperAsset;
+use floor12\editmodal\EditModalHelper;
 
 LightboxAsset::register($this);
 
@@ -29,7 +30,7 @@ $this->registerJs('initSwiper()', \yii\web\View::POS_READY);
 $this->params['breadcrumbs'][] = $this->title;
 
 if (Yii::$app->getModule('pages')->adminMode()):
-    echo Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs pull-right', 'onclick' => ModalWindow::showForm('/news/news/form', $model->id)]);
+    echo Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs pull-right', 'onclick' => EditModalHelper::showForm('/news/news/form', $model->id)]);
 endif;
 
 Pjax::begin(['id' => 'items']);

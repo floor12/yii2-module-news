@@ -13,6 +13,7 @@ use yii\helpers\Html;
 use common\components\FontAwesome;
 use floor12\editmodal\ModalWindow;
 use floor12\news\News;
+use floor12\editmodal\EditModalHelper;
 
 ?>
 
@@ -20,8 +21,8 @@ use floor12\news\News;
 
     <?php if (Yii::$app->getModule('pages')->adminMode()): ?>
         <div class="pull-right">
-            <?= Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs', 'onclick' => ModalWindow::showForm('/news/news/form', $model->id)]); ?>
-            <?= Html::a(FontAwesome::icon('trash'), null, ['class' => 'btn btn-default btn-xs', 'onclick' => ModalWindow::deleteItem('/news/news/delete', $model->id)]); ?>
+            <?= Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs', 'onclick' => EditModalHelper::showForm('/news/news/form', $model->id)]); ?>
+            <?= Html::a(FontAwesome::icon('trash'), null, ['class' => 'btn btn-default btn-xs', 'onclick' => EditModalHelper::deleteItem('/news/news/delete', $model->id)]); ?>
         </div>
     <?php endif; ?>
 
