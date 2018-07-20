@@ -20,9 +20,9 @@
   ],
   "require": {
     "yiisoft/yii2": "~2.0.13",
-    "floor12/yii2-editmodal": "dev-master",
-    "floor12/yii2-module-pages": "dev-master",
-    "floor12/yii2-module-files": "dev-master",
+    "floor12/yii2-editmodal": "*",
+    "floor12/yii2-module-pages":"*",
+    "floor12/yii2-module-files": "*",
     "floor12/yii2-opengraph": "dev-master",
     "bower-asset/summernote": "@dev",
     "bower-asset/swiper": "~3.4.1"
