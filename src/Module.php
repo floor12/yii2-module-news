@@ -19,6 +19,10 @@ class Module extends \yii\base\Module
      */
     public $editRole = '@';
 
+    /** Модель пользователя
+     * @var string
+     */
+    public $userModel = 'app\models\User';
     /** Вьюхи
      * @var string
      */

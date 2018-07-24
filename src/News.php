@@ -74,8 +74,8 @@ class News extends ActiveRecord implements PageObjectInterface
             [['announce', 'body'], 'string'],
             [['key', 'description_seo', 'keywords_seo'], 'string', 'max' => 400],
             [['title', 'title_seo'], 'string', 'max' => 255],
-            [['create_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['create_user_id' => 'id']],
-            [['update_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['update_user_id' => 'id']],
+            [['create_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getModule('news')->userModel, 'targetAttribute' => ['create_user_id' => 'id']],
+            [['update_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getModule('news')->userModel, 'targetAttribute' => ['update_user_id' => 'id']],
             ['images', 'file', 'maxFiles' => 10, 'extensions' => ['jpg', 'jpeg', 'png', 'gif']],
             ['key', 'match', 'pattern' => '/^[-a-z0-9]*$/', 'message' => 'Ключ URL может состоять только из латинских букв в нижнем регистре, цифр и дефиса.'],
         ];
