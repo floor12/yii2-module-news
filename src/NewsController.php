@@ -20,7 +20,15 @@ use yii\filters\VerbFilter;
 class NewsController extends Controller
 {
 
-    public $layout = '@frontend/views/layouts/columns';
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        $this->layout = Yii::$app->getModule('news')->layout;
+        parent::init();
+    }
+
 
     /**
      * @inheritdoc

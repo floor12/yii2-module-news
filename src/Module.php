@@ -19,6 +19,11 @@ class Module extends \yii\base\Module
      */
     public $editRole = '@';
 
+    /** Лейаут для контроллера
+     * @var string
+     */
+    public $layout = '@app/views/layouts/main';
+
     /** Модель пользователя
      * @var string
      */
