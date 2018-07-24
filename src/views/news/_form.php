@@ -9,7 +9,7 @@
  *
  */
 
-use kartik\widgets\DatePicker;
+use kartik\date\DatePicker;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 use floor12\news\News;
