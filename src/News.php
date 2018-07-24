@@ -8,6 +8,7 @@ use yii\db\ActiveRecord;
 use floor12\files\components\FileBehaviour;
 use floor12\files\models\File;
 use common\models\User;
+use \Yii;
 
 
 /**
