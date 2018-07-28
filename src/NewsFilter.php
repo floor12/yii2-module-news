@@ -11,6 +11,7 @@ namespace floor12\news;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
+use \Yii;
 
 class NewsFilter extends Model
 {
@@ -41,7 +42,7 @@ class NewsFilter extends Model
 
         $this->_query = News::find()->orderBy('publish_date DESC')->where(['page_id' => $this->page_id]);
 
-        if (!$this->showDisabled)
+        if (!(Yii::$app->getModule('news')->adminMode() && $this->showDisabled))
             $this->_query->active();
 
         return new ActiveDataProvider([

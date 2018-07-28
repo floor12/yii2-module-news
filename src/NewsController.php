@@ -69,7 +69,10 @@ class NewsController extends Controller
     {
         $model = News::find()->where(['key' => $key])->andFilterWhere(['page_id' => $page_id])->one();
         if (!$model)
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException('Новость не найдена.');
+
+        if (!Yii::$app->getModule('news')->adminMode() && $model->status == News::STATUS_DISABLED)
+            throw new NotFoundHttpException('Новость не найдена.');
 
         return $this->render(Yii::$app->getModule('news')->viewView, ['model' => $model]);
     }
