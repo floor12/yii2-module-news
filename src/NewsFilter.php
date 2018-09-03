@@ -8,10 +8,10 @@
 
 namespace floor12\news;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
-use \Yii;
 
 class NewsFilter extends Model
 {
@@ -47,7 +47,7 @@ class NewsFilter extends Model
 
         return new ActiveDataProvider([
             'pagination' => [
-                'route' => '/company/news.html',
+                'route' => Yii::$app->request->getPathInfo(),
                 'pageSize' => 20,
             ],
             'query' => $this->_query,
