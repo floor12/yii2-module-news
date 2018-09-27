@@ -9,11 +9,10 @@
  * @var $model News
  */
 
-use yii\helpers\Html;
-use common\components\FontAwesome;
-use floor12\editmodal\ModalWindow;
-use floor12\news\News;
 use floor12\editmodal\EditModalHelper;
+use floor12\news\News;
+use rmrevin\yii\fontawesome\FontAwesome;
+use yii\helpers\Html;
 
 ?>
 

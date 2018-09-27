@@ -10,10 +10,10 @@
  * @var $page Page
  */
 
-use \common\components\FontAwesome;
+use rmrevin\yii\fontawesome\FontAwesome;
+use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
-use kartik\form\ActiveForm;
 
 ?>
 <?php if (Yii::$app->getModule('pages')->adminMode()): ?>

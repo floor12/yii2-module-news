@@ -9,15 +9,16 @@
  * @var $model \floor12\news\News
  */
 
+use floor12\editmodal\EditModalHelper;
 use floor12\files\assets\LightboxAsset;
 use floor12\files\components\FilesBlock;
-use floor12\editmodal\ModalWindow;
-use yii\helpers\Html;
-use common\components\FontAwesome;
-use yii\widgets\Pjax;
 use floor12\news\SwiperAsset;
-use floor12\editmodal\EditModalHelper;
+use rmrevin\yii\fontawesome\FontAwesome;
+use yii\helpers\Html;
+use yii\widgets\Pjax;
 
+
+SwiperAsset::register($this);
 LightboxAsset::register($this);
 
 $this->title = $model->title_seo;
@@ -69,12 +70,34 @@ Pjax::begin(['id' => 'items']);
 </div>
 
 
-<?php if (sizeof($model->images) > 1 && !$model->slider): ?>
-    <?= FilesBlock::widget([
+<?php
+if (sizeof($model->images) > 1 && !$model->slider):
+    echo FilesBlock::widget([
         'files' => $model->images,
         'passFirst' => true,
-    ]) ?>
-    <?php
+    ]);
 endif;
 Pjax::end()
 ?>
+
+<div class="clearfix"></div>
+
+<script>
+    // index page swiper
+    function initSwiper() {
+
+        setTimeout(function () {
+
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                keyboardControl: true,
+                autoplay: 4000,
+            });
+        }, 500);
+    }
+
+</script>
