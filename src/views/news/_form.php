@@ -9,13 +9,12 @@
  *
  */
 
-use kartik\date\DatePicker;
-use yii\widgets\ActiveForm;
-use yii\helpers\Html;
-use floor12\news\News;
-use floor12\pages\components\Summernote;
 use floor12\files\components\FileInputWidget;
-use floor12\editmodal\EditModalHelper;
+use floor12\news\News;
+use floor12\summernote\Summernote;
+use kartik\date\DatePicker;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 $form = ActiveForm::begin([
     'id' => 'news-form',
