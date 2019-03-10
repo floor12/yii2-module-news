@@ -8,7 +8,7 @@
 
 namespace floor12\news;
 
-use floor12\pages\Page;
+use floor12\pages\models\Page;
 use floor12\editmodal\EditModalAction;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

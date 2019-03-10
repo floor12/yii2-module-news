@@ -10,7 +10,7 @@
  * @var $page Page
  */
 
-use rmrevin\yii\fontawesome\FontAwesome;
+use floor12\editmodal\IconHelper;
 use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
@@ -18,8 +18,9 @@ use yii\widgets\Pjax;
 ?>
 <?php if (Yii::$app->getModule('pages')->adminMode()): ?>
     <a class="btn btn-xs btn-default pull-right"
-       onclick="showForm('/news/news/form',{id:0,page_id:<?= $page->id ?>})"><?= FontAwesome::icon('plus') ?>
-        добавить объект</a>
+       onclick="showForm('/news/news/form',{id:0,page_id:<?= $page->id ?>})">
+        <?= IconHelper::PLUS ?> добавить объект
+    </a>
 <?php endif; ?>
 
     <div class="h1-wrapper h1-wrapper-margin">

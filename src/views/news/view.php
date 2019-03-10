@@ -13,7 +13,6 @@ use floor12\editmodal\EditModalHelper;
 use floor12\files\assets\LightboxAsset;
 use floor12\files\components\FilesBlock;
 use floor12\news\SwiperAsset;
-use rmrevin\yii\fontawesome\FontAwesome;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
@@ -30,17 +29,18 @@ $this->registerJs('initSwiper()', \yii\web\View::POS_READY);
 
 $this->params['breadcrumbs'][] = $this->title;
 
-if (Yii::$app->getModule('pages')->adminMode()):
-    echo Html::a(FontAwesome::icon('pencil'), null, ['class' => 'btn btn-default btn-xs pull-right', 'onclick' => EditModalHelper::showForm('/news/news/form', $model->id)]);
-endif;
-
 Pjax::begin(['id' => 'items']);
 
 ?>
-<div class="h1-wrapper-margin h1-wrapper">
-    <h1><?= $model->title ?></h1>
-    <div></div>
-</div>
+
+<?php if (Yii::$app->getModule('pages')->adminMode()): ?>
+    <div class="pull-right">
+        <?= EditModalHelper::editBtn(['/news/news/form'], $model->id) ?>
+        <?= EditModalHelper::deleteBtn(['/news/news/form'], $model->id) ?>
+    </div>
+<?php endif; ?>
+
+<h1><?= $model->title ?></h1>
 
 <?php if ($model->images && $model->poster_in_view && !$model->slider): ?>
     <?= Html::a(Html::img($model->images[0]->href, ['class' => 'content-big-image', 'alt' => $model->title_seo]), $model->images[0]->href, ['data-lightbox' => 'news']); ?>

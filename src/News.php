@@ -2,8 +2,8 @@
 
 namespace floor12\news;
 
-use floor12\pages\Page;
-use floor12\pages\PageObjectInterface;
+use floor12\pages\models\Page;
+use floor12\pages\interfaces\PageObjectInterface;
 use yii\db\ActiveRecord;
 use floor12\files\components\FileBehaviour;
 use floor12\files\models\File;
