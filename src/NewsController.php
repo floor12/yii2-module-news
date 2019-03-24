@@ -77,7 +77,7 @@ class NewsController extends Controller
         Yii::$app
             ->metamaster
             ->setTitle($model->title)
-            ->setDescription($model->description_seo)
+            ->setDescription($model->description_seo ? $model->description_seo : "")
             ->setImage(
                 !empty($model->images) ? $model->images[0]->getHref() : "",
                 !empty($model->images) ? $model->images[0]->getRootPath() : ""
