@@ -29,7 +29,7 @@ class m180403_114045_news extends Migration
             'title_seo' => $this->string(255)->notNull()->comment('Title страницы'),
             'description_seo' => $this->string(400)->null()->comment('Meta Description'),
             'keywords_seo' => $this->string(400)->null()->comment('Meta keywords'),
-            'announce' => $this->text()->notNull()->comment('Анонс новости'),
+            'announce' => $this->text()->null()->comment('Анонс новости'),
             'body' => $this->text()->null()->comment('Текст новости'),
             'publish_date' => $this->integer()->notNull()->comment('Дата публикации'),
             'page_id' => $this->integer()->null()->comment('Связь с разделом'),

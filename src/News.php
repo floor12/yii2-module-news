@@ -71,7 +71,7 @@ class News extends ActiveRecord implements PageObjectInterface
         return [
             ['key', 'trim'],
             [['status', 'created', 'updated', 'create_user_id', 'update_user_id', 'publish_date', 'page_id', 'index_page', 'poster_in_listing', 'poster_in_view', 'slider'], 'integer'],
-            [['created', 'updated', 'key', 'title', 'title_seo', 'announce', 'publish_date'], 'required'],
+            [['created', 'updated', 'key', 'title', 'title_seo', 'publish_date'], 'required'],
             [['announce', 'body'], 'string'],
             [['key', 'description_seo', 'keywords_seo'], 'string', 'max' => 400],
             [['title', 'title_seo'], 'string', 'max' => 255],

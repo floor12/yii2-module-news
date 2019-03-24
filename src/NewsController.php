@@ -8,14 +8,14 @@
 
 namespace floor12\news;
 
-use floor12\pages\models\Page;
+use floor12\editmodal\DeleteAction;
 use floor12\editmodal\EditModalAction;
+use floor12\pages\models\Page;
+use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\AccessControl;
-use floor12\editmodal\DeleteAction;
-use \Yii;
-use yii\filters\VerbFilter;
 
 class NewsController extends Controller
 {
@@ -73,6 +73,17 @@ class NewsController extends Controller
 
         if (!Yii::$app->getModule('news')->adminMode() && $model->status == News::STATUS_DISABLED)
             throw new NotFoundHttpException('Новость не найдена.');
+
+        Yii::$app
+            ->metamaster
+            ->setTitle($model->title)
+            ->setDescription($model->description_seo)
+            ->setImage(
+                !empty($model->images) ? $model->images[0]->getHref() : "",
+                !empty($model->images) ? $model->images[0]->getRootPath() : ""
+            )
+            ->register($this->getView());
+
 
         return $this->render(Yii::$app->getModule('news')->viewView, ['model' => $model]);
     }
