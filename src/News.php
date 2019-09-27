@@ -2,13 +2,13 @@
 
 namespace floor12\news;
 
-use floor12\pages\models\Page;
-use floor12\pages\interfaces\PageObjectInterface;
-use yii\db\ActiveRecord;
+use common\models\User;
 use floor12\files\components\FileBehaviour;
 use floor12\files\models\File;
-use common\models\User;
-use \Yii;
+use floor12\pages\interfaces\PageObjectInterface;
+use floor12\pages\models\Page;
+use Yii;
+use yii\db\ActiveRecord;
 
 
 /**
@@ -77,7 +77,7 @@ class News extends ActiveRecord implements PageObjectInterface
             [['title', 'title_seo'], 'string', 'max' => 255],
             [['create_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getModule('news')->userModel, 'targetAttribute' => ['create_user_id' => 'id']],
             [['update_user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getModule('news')->userModel, 'targetAttribute' => ['update_user_id' => 'id']],
-            ['images', 'file', 'maxFiles' => 10, 'extensions' => ['jpg', 'jpeg', 'png', 'gif']],
+            ['images', 'file', 'maxFiles' => 10, 'extensions' => ['jpg', 'jpeg', 'png', 'gif', 'svg'], 'checkExtensionByMimeType' => false],
             ['key', 'match', 'pattern' => '/^[-a-z0-9]*$/', 'message' => 'Ключ URL может состоять только из латинских букв в нижнем регистре, цифр и дефиса.'],
         ];
     }
