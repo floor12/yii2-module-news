@@ -21,7 +21,7 @@
   "require": {
     "yiisoft/yii2": "~2.0.13",
     "floor12/yii2-editmodal": "*",
-    "floor12/yii2-module-pages":"*",
+    "floor12/yii2-module-pages": "*",
     "floor12/yii2-module-files": "*",
     "floor12/yii2-metamaster": "*",
     "bower-asset/swiper": "~3.4.1"
@@ -31,14 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "floor12\\news\\": [
-        "src/"
-      ]
+      "floor12\\news\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "floor12\\news\\tests\\": "tests/"
+      "floor12\\news\\tests\\": "tests"
     }
   },
   "repositories": [
