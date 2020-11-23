@@ -24,7 +24,7 @@
     "floor12/yii2-module-pages": "*",
     "floor12/yii2-module-files": "*",
     "floor12/yii2-metamaster": "*",
-    "bower-asset/swiper": "~3.4.1"
+    "bower-asset/swiper": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*"
